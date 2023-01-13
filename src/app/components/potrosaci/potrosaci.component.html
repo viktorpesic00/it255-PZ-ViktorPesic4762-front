@@ -1,0 +1,38 @@
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>IME</th>
+      <th>PREZIME</th>
+      <th>EMAIL</th>
+      <th>BROJ_TELEFONA</th>
+      <th>ADRESA</th>
+      <th>GRAD</th>
+      <th>FIRMA</th>
+      <th>POZICIJA</th>
+      <th>DATUM_REGISTRACIJE</th>
+      <th>PRODAVAC_ID</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+
+  <tr *ngFor="let potrosac of potrosaci">
+    <th>{{ this.potrosac.id }}</th>
+    <th>{{ this.potrosac.ime }}</th>
+    <th>{{ this.potrosac.prezime }}</th>
+    <th>{{ this.potrosac.email }}</th>
+    <th>{{ this.potrosac.broj_telefona }}</th>
+    <th>{{ this.potrosac.adresa }}</th>
+    <th>{{ this.potrosac.grad }}</th>
+    <th>{{ this.potrosac.firma }}</th>
+    <th>{{ this.potrosac.pozicija }}</th>
+    <th>{{ this.potrosac.datum_registracije }}</th>
+    <th>{{ this.potrosac.prodavac_id }}</th>
+    <th><button>Edit</button></th>
+    <th><button>Delete</button></th>
+  </tr>
+</table>
+
+<button>Dodaj Potrosaca</button>
+<app-dodajpotrosaca></app-dodajpotrosaca>

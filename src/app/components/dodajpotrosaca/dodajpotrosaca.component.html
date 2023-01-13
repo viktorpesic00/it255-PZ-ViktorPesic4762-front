@@ -1,0 +1,84 @@
+<form (ngSubmit)="submitForm()">
+  <label>Ime:</label>
+  <input
+    type="text"
+    [(ngModel)]="potrosac.ime"
+    name="ime"
+    required
+    minlength="3"
+    maxlength="30"
+  />
+  <br />
+  <label>Prezime:</label>
+  <input
+    type="text"
+    [(ngModel)]="potrosac.prezime"
+    name="prezime"
+    required
+    minlength="3"
+    maxlength="30"
+  />
+  <br />
+  <label>Email:</label>
+  <input
+    type="text"
+    [(ngModel)]="potrosac.email"
+    name="email"
+    required
+    minlength="3"
+    maxlength="50"
+  />
+
+  <br />
+  <label>Broj Telefona:</label>
+
+  <input
+    type="text"
+    [(ngModel)]="potrosac.broj_telefona"
+    name="broj_telefona"
+    required
+  />
+  <br />
+  <label>Adresa:</label>
+  <input
+    type="text"
+    [(ngModel)]="potrosac.adresa"
+    name="adresa"
+    required
+    minlength="3"
+    maxlength="30"
+  />
+  <br />
+  <label>Grad:</label>
+  <input
+    type="text"
+    [(ngModel)]="potrosac.grad"
+    name="grad"
+    required
+    minlength="3"
+    maxlength="30"
+  />
+  <br />
+  <label>Firma:</label>
+  <input
+    type="text"
+    [(ngModel)]="potrosac.firma"
+    name="firma"
+    required
+    minlength="3"
+    maxlength="30"
+  />
+  <br />
+  <label>Pozicija:</label>
+  <input
+    type="text"
+    [(ngModel)]="potrosac.pozicija"
+    name="pozicija"
+    required
+    minlength="3"
+    maxlength="30"
+  />
+  <br />
+
+  <button class="greenButton" type="submit">Submit</button>
+</form>
