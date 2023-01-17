@@ -1,0 +1,20 @@
+<app-navbar></app-navbar>
+<br />
+<br />
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>IME</th>
+      <th>PREZIME</th>
+      <th>EMAIL</th>
+    </tr>
+  </thead>
+
+  <tr *ngFor="let prodavac of prodavci; let i; as: index">
+    <th>{{ this.prodavac.id }}</th>
+    <th>{{ this.prodavac.ime }}</th>
+    <th>{{ this.prodavac.prezime }}</th>
+    <th>{{ this.prodavac.email }}</th>
+  </tr>
+</table>

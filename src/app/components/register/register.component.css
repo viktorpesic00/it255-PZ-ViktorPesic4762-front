@@ -1,13 +1,16 @@
+input[type="password"],
 input[type="text"],
 select,
 textarea {
   width: 50%;
+  height: 10px;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
   resize: vertical;
 }
+
 label {
   padding: 12px 12px 12px 0;
   display: inline-block;
@@ -27,6 +30,11 @@ input[type="submit"] {
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
+  position: absolute;
+  left: 33%;
+  top: 33%;
+  width: 350px;
+  text-align: center;
 }
 
 .col-25 {
@@ -50,23 +58,23 @@ input {
   margin-top: 5px;
   margin-bottom: 5px;
   display: inline-block;
-  *display: inline;
-  zoom: 1;
+  *display: inline; /* for IE7*/
+  zoom: 1; /* for IE7*/
   vertical-align: middle;
   margin-left: 20px;
 }
 
 label {
   display: inline-block;
-  *display: inline;
-  zoom: 1;
+  *display: inline; /* for IE7*/
+  zoom: 1; /* for IE7*/
 
   padding-top: 5px;
   text-align: right;
   width: 140px;
 }
 .greenButton {
-  background-color: #4caf50;
+  background-color: #4caf50; /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -76,5 +84,18 @@ label {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
-  float: right;
+  float: center;
+}
+.greeyGreen {
+  background-color: #728a73; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  float: center;
 }

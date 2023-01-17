@@ -1,3 +1,5 @@
+<app-navbar></app-navbar>
+<br />
 <table>
   <thead>
     <tr>
@@ -14,10 +16,11 @@
       <th>PRODAVAC_ID</th>
       <th>Edit</th>
       <th>Delete</th>
+      <th>Napravi prodaju</th>
     </tr>
   </thead>
 
-  <tr *ngFor="let potrosac of potrosaci">
+  <tr *ngFor="let potrosac of potrosaci; let i; as: index">
     <th>{{ this.potrosac.id }}</th>
     <th>{{ this.potrosac.ime }}</th>
     <th>{{ this.potrosac.prezime }}</th>
@@ -27,12 +30,21 @@
     <th>{{ this.potrosac.grad }}</th>
     <th>{{ this.potrosac.firma }}</th>
     <th>{{ this.potrosac.pozicija }}</th>
-    <th>{{ this.potrosac.datum_registracije }}</th>
+    <th>{{ this.potrosac.datum_registracije | date }}</th>
     <th>{{ this.potrosac.prodavac_id }}</th>
-    <th><button>Edit</button></th>
-    <th><button>Delete</button></th>
+    <th>
+      <button class="greenButtonSmall" (click)="updatePotrosac(i)">Edit</button>
+    </th>
+    <th>
+      <button class="redButtonSmall" (click)="deletePotrosac(i)">Delete</button>
+    </th>
+    <th>
+      <button class="blueButtonSmall" (click)="napraviProdaju(i)">
+        Napravi Prodaju
+      </button>
+    </th>
   </tr>
 </table>
-
-<button>Dodaj Potrosaca</button>
-<app-dodajpotrosaca></app-dodajpotrosaca>
+<br />
+<button class="greenButton" (click)="dodajPotrosaca()">Dodaj Potrosaca</button>
+<!-- <app-dodajpotrosaca></app-dodajpotrosaca> -->

@@ -9,5 +9,5 @@ export interface Potrosac {
   firma: string;
   pozicija: string;
   datum_registracije: string;
-  prodavac_id: string;
+  prodavac_id: string | null;
 }

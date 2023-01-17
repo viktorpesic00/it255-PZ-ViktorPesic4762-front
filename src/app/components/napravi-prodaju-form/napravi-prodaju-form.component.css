@@ -8,6 +8,7 @@ textarea {
   box-sizing: border-box;
   resize: vertical;
 }
+
 label {
   padding: 12px 12px 12px 0;
   display: inline-block;
@@ -50,16 +51,16 @@ input {
   margin-top: 5px;
   margin-bottom: 5px;
   display: inline-block;
-  *display: inline;
-  zoom: 1;
+  *display: inline; /* for IE7*/
+  zoom: 1; /* for IE7*/
   vertical-align: middle;
   margin-left: 20px;
 }
 
 label {
   display: inline-block;
-  *display: inline;
-  zoom: 1;
+  *display: inline; /* for IE7*/
+  zoom: 1; /* for IE7*/
 
   padding-top: 5px;
   text-align: right;

@@ -1,0 +1,55 @@
+<app-navbar></app-navbar>
+<br />
+<form action="">
+  <label for="">Izaberi Prodavca</label>
+  <select name="" id="" (change)="onChange($event)">
+    <option
+      *ngFor="let prodavac of prodavci; let i; as: index"
+      value="{{ prodavac.id }}"
+    >
+      {{ prodavac.ime }} {{ prodavac.prezime }}
+    </option>
+  </select>
+  <label for=""> Izaberi datum od:</label>
+  <input
+    type="date"
+    name="datumOd"
+    id=""
+    min="2018-01-01"
+    [(ngModel)]="datumOd"
+  />
+  <label for=""> Izaberi datum do:</label>
+  <input
+    type="date"
+    name="datumDo"
+    id=""
+    min="2018-01-01"
+    [(ngModel)]="datumDo"
+  />
+
+  <button type="submit" (click)="submit()">Search</button>
+</form>
+<br />
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Datum Prodaje</th>
+      <th>Kupac</th>
+      <th>Adresa Kupca</th>
+      <th>Prodavac</th>
+      <th>Opis</th>
+      <th>Cena</th>
+    </tr>
+  </thead>
+
+  <tr *ngFor="let podatak of statistika; let i; as: index">
+    <th>{{ this.podatak.id }}</th>
+    <th>{{ this.podatak.datum_prodaje | date }}</th>
+    <th>{{ this.podatak.imePotrosaca }} {{ this.podatak.prezimePotrosaca }}</th>
+    <th>{{ this.podatak.adresa }} {{ this.podatak.grad }}</th>
+    <th>{{ this.podatak.imeProdavca }} {{ this.podatak.prezimeProdavca }}</th>
+    <th>{{ this.podatak.opis }}</th>
+    <th>{{ this.podatak.cena }}</th>
+  </tr>
+</table>

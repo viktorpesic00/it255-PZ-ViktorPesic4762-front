@@ -1,0 +1,47 @@
+<div class="container">
+  <form>
+    <label> Ime</label>
+
+    <input name="ime" type="text" [(ngModel)]="prodavac.ime" min="4" max="30" />
+
+    <label> Prezime</label>
+
+    <input
+      name="prezime"
+      type="text"
+      [(ngModel)]="prodavac.prezime"
+      min="4"
+      max="30"
+    />
+
+    <label> Email</label>
+
+    <input
+      name="email"
+      type="text"
+      [(ngModel)]="prodavac.email"
+      min="4"
+      max="30"
+    />
+
+    <label> Password</label>
+
+    <input
+      name="password"
+      type="password"
+      [(ngModel)]="prodavac.password"
+      min="4"
+      max="30"
+    />
+
+    <button
+      class="greenButton"
+      type="submit"
+      (click)="register()"
+      value="Register"
+    >
+      Register
+    </button>
+    <button class="greeyGreen" type="submit" (click)="login()">Login</button>
+  </form>
+</div>

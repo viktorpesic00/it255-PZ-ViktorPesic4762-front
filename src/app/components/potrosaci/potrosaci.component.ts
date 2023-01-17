@@ -1,63 +1,70 @@
 import { Component } from '@angular/core';
 import { Potrosac } from 'src/app/types/potrosac';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalComponent } from '../modal/modal.component';
+import { PotrosacServiceService } from '../../services/potrosac-service.service';
+import { UpdatePotrosacModalComponent } from '../update-potrosac-modal/update-potrosac-modal.component';
+import { NapraviProdajuModalComponent } from '../napravi-prodaju-modal/napravi-prodaju-modal.component';
+
 @Component({
   selector: 'app-potrosaci',
   templateUrl: './potrosaci.component.html',
   styleUrls: ['./potrosaci.component.css'],
 })
 export class PotrosaciComponent {
-  potrosaci: Potrosac[] = [
-    {
-      id: 1,
-      ime: 'Marko',
-      prezime: 'Markovic',
-      email: 'marko.markovic@gmail.com',
-      broj_telefona: '061123456',
-      adresa: 'Bulevar Oslobodjenja 12',
-      grad: 'Novi Sad',
-      firma: 'Marko Ltd',
-      pozicija: 'Direktor',
-      datum_registracije: '01.01.2021',
-      prodavac_id: 'p1',
-    },
-    {
-      id: 2,
-      ime: 'Jelena',
-      prezime: 'Jelic',
-      email: 'jelena.jelic@gmail.com',
-      broj_telefona: '061123457',
-      adresa: 'Kralja Petra 71',
-      grad: 'Beograd',
-      firma: 'Jelena d.o.o.',
-      pozicija: 'Menadzer',
-      datum_registracije: '02.01.2021',
-      prodavac_id: 'p2',
-    },
-    {
-      id: 3,
-      ime: 'Petar',
-      prezime: 'Petrovic',
-      email: 'petar.petrovic@gmail.com',
-      broj_telefona: '061123458',
-      adresa: 'Trg Republike 1',
-      grad: 'Nis',
-      firma: 'Petar Inc',
-      pozicija: 'Vlasnik',
-      datum_registracije: '03.01.2021',
-      prodavac_id: 'p3',
-    },
-    {
-      id: 4,
-      ime: 'Marija',
-      prezime: 'Maric',
-      email: 'marija.maric@gmail.com',
-      broj_telefona: '061123459',
-      adresa: 'Zeleznicka 12',
-      grad: 'Subotica',
-      firma: 'Marija d.o.o.',
-      pozicija: 'Sekretar',
-      datum_registracije: '04.01.2021',
-      prodavac_id: 'p4',
-    },
-  ];
+  potrosaci: Potrosac[] = [];
+
+  addToList(potrosac: Potrosac) {
+    this.potrosaci.push(potrosac);
+  }
+
+  constructor(
+    public dialog: MatDialog,
+    private potrosacService: PotrosacServiceService
+  ) {
+    this.potrosacService
+      .getAll()
+      .then((data) => (this.potrosaci = data))
+      .catch((error) => console.log(error));
+  }
+
+  dodajPotrosaca() {
+    const dialogRef = this.dialog.open(ModalComponent, {
+      panelClass: `cdk-overlay-container`,
+    });
+  }
+
+  napraviProdaju(potrosac: Potrosac) {
+    const dialogRef = this.dialog.open(NapraviProdajuModalComponent, {
+      panelClass: `cdk-overlay-container`,
+      data: {
+        potrosac,
+      },
+    });
+  }
+
+  updatePotrosac(potrosac: Potrosac) {
+    const dialogRef = this.dialog.open(UpdatePotrosacModalComponent, {
+      panelClass: `cdk-overlay-container`,
+      data: {
+        potrosac,
+      },
+    });
+  }
+
+  deletePotrosac(potrosac: Potrosac) {
+    this.potrosacService.delete(potrosac);
+    const index = this.potrosaci.indexOf(potrosac);
+    this.potrosaci.splice(index, 1);
+  }
+
+  removeObjectWithId(arr: Potrosac[], id: number) {
+    const objWithIdIndex = this.potrosaci.findIndex(
+      (potrosac: Potrosac) => potrosac.id === id
+    );
+
+    if (objWithIdIndex > -1) {
+      this.potrosaci = this.potrosaci.splice(objWithIdIndex, 1);
+    }
+  }
 }

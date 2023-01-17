@@ -1,0 +1,27 @@
+<form (ngSubmit)="submitForm()">
+  <label>Opis:</label>
+  <input
+    type="text"
+    [(ngModel)]="opis"
+    name="ime"
+    required
+    minlength="3"
+    maxlength="30"
+    required
+  />
+  <br />
+  <label>Cena:</label>
+  <input
+    type="text"
+    [(ngModel)]="cena"
+    name="cena"
+    required
+    minlength="3"
+    maxlength="30"
+    required
+  />
+
+  <br />
+
+  <button class="greenButton" type="submit">Submit</button>
+</form>
